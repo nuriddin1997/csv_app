@@ -1,0 +1,31 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Excel_To_Csv</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="main-header"><span>Excel To Csv</span></div>
+        <div class="main-body">{% block content %}
+            <form method='post' action='.' enctype='multipart/form-data'>
+                {% csrf_token %} {{form}}
+                <input type="submit" value="Convert">
+            </form>{% endblock %}
+        </div>
+        <div class="loader">Page loadind! Please wait...</div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(window).on("load", function(){
+        $(".loader").fadeOut("slow");
+            });
+        </script>
+    </div>
+</body>
+
+</html>

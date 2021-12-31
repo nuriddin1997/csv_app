@@ -1,0 +1,6 @@
+{% extends 'tocsv/main.html' %} {% block content%}
+<div class="download-header">Please,download <code style="font-size:2em;
+    color:red;">.csv</code> file!</div>
+{{last_file}}
+<a class="download-link" href="/media/uploaded/{{last_file}}">Download</a>
+<a class="download-link" href="{% url 'home' %}">Back</a> {% endblock %}
